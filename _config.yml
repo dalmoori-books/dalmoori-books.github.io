@@ -1,0 +1,70 @@
+permalink: /:year-:month-:day-:title/
+paginate_path: /page:num/
+
+# Setup
+timezone: null
+avatar: https://dalmoori-books.github.io/assets/images/sign-white.png
+
+title: 출판사 달무리 (Dalmoori)
+tagline: "전자책 출판사"
+description: "진정한 의미의 디지털 노마드를 꿈꾸는 1인 지식 사업 프로젝트 중 하나로 운영되는 1인 전자책 출판사입니다. (출판사 등록번호 : 251002020000128)"
+url: "https://dalmoori-books.github.io"
+baseurl:
+paginate: 10
+
+# About/contact
+author:
+  name: 달무리 (Dalmoori)
+  url: "https://github.com/dalmoori-books"
+  email: dalmoori.books@gmail.com
+
+version: v4.1.1
+# version: 1.0.0
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+
+sass:
+  style: :expanded
+
+plugins_dir:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+
+google_analytics:
+  ua: ""
+
+github:
+  repo: "https://github.com/dalmoori-books"
+
+category_dir: category/
+tag_dir: tags/
+
+excerpt_separator: ""
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CNAME
+  - .sass-cache
+
+footer-links:
+  behance:
+  dribbble:
+  email: dalmoori.books@gmail.com
+  facebook:
+  flickr:
+  github: dalmoori-books
+  googleplus:
+  instagram:
+  linkedin:
+  pinterest:
+  rss:
+  stackoverflow:
+  tumblr:
+  twitter:

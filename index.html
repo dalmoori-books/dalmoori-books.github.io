@@ -1,0 +1,148 @@
+---
+layout: default
+---
+
+<div class="posts">
+  <h3 class="main-label">신간 소식</h3>
+  <!-- 책 들어갈 부분 -->
+  <div class="catalog">
+    <table>
+      <tr>
+        <td>
+          <h5>어흥이</h5>
+          <img class="book-cover" src="https://images.unsplash.com/photo-1461419912973-9964f1f54b24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80">
+          <div class="book-desc">책 설명 들어 갈 위치</div>
+        </td>
+        <td>
+          <h5>사숨이</h5>
+          <img class="book-cover" src="https://images.unsplash.com/photo-1461419912973-9964f1f54b24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80">
+          <div class="book-desc">책 설명 들어 갈 위치</div>
+        </td>
+        <td>
+          <h5>다람쥐</h5>
+          <img class="book-cover" src="https://images.unsplash.com/photo-1461419912973-9964f1f54b24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80">
+          <div class="book-desc">책 설명 들어 갈 위치 가나다라마바사</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h5>도토리</h5>
+          <img class="book-cover" src="https://images.unsplash.com/photo-1461419912973-9964f1f54b24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80">
+          <div class="book-desc">책 설명 들어 갈 위치</div>
+        </td>
+        <td>
+          <h5>가나다라마바사</h5>
+          <img class="book-cover" src="https://images.unsplash.com/photo-1461419912973-9964f1f54b24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80">
+          <div class="book-desc">책 설명 들어 갈 위치</div>
+        </td>
+        <td>
+          <h5>스누피</h5>
+          <img class="book-cover" src="https://images.unsplash.com/photo-1461419912973-9964f1f54b24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80">
+          <div class="book-desc">책 설명 들어 갈 위치</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <h3 class="main-label">블로그</h3>
+  {% for post in paginator.posts %}
+  <article class="post">
+
+    <span class="date">
+      {{ post.date | date: "%Y-%m-%d" }}
+    </span>
+
+    <!--
+    <ul class="category-main-list">
+      {% for category in post.category %}
+      <li>
+        <span>{{ category }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  -->
+
+    <h1 class="main-title">
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    </h1>
+
+    <div clsss="meta main-tag">
+      <ul class="tag">
+        {% for tag in post.tags %}
+        <li>
+          <a href="{{ site.url }}{{ site.baseurl }}/tags#{{ tag }}">
+            {{ tag }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!--
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+
+      {% if post.link %}
+      {% else %}
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+      {% endif %}
+-->
+
+  </article>
+  {% endfor %}
+</div>
+
+<!-- Pagination links -->
+<div class="pagination clearfix">
+  {% if paginator.previous_page %}
+  {% if paginator.previous_page == 1 %}
+  <li class="prev"><a href="/">Prev</a></li>
+  {% else %}
+  <li><a href="/page{{ paginator.previous_page }}">Prev</a></li>
+  {% endif %}
+  {% else %}
+  <li><span class="disabled">Prev</span></li>
+  {% endif %}
+  {% if paginator.page == 1 %}
+  <li><span class="active">1</span></li>
+  {% else %}
+  <li><a href="/">1</a></li>
+  {% endif %}
+  {% for count in (2..paginator.total_pages) %}
+  {% if count == paginator.page %}
+  <li><span class="active">{{ count }}</span></li>
+  {% else %}
+  <li><a href="/page{{ count }}">{{ count }}</a></li>
+  {% endif %}
+  {% endfor %}
+  {% if paginator.next_page %}
+  <li class="next"><a href="/page{{ paginator.next_page }}">Next</a></li>
+  {% else %}
+  <li><span class="disabled">Next</span></li>
+  {% endif %}
+  <!--
+</ul>
+</section>
+-->
+
+  <!--
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <span class="prev">
+      <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="prev">
+        &#xE000; Previous
+      </a>
+      <span class="pagi">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    </span>
+  {% endif %}
+  {% if paginator.next_page %}
+    <span class="next">
+      <span class="pagi">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+      <a href="{{ site.baseurl}}{{ paginator.next_page_path }}" class="next">
+        Next &#xE001;
+      </a>
+    </span>
+  {% endif %}
+</div>
+-->
